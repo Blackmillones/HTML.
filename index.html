@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog - Inteligencia Artificial</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      transition: background 2s;
+      background: linear-gradient(270deg, #ffcc00, #ff6699, #66ccff, #99ff66, #ff9966);
+      background-size: 1000% 1000%;
+      animation: moverFondo 5s linear infinite; /* 🔥 Más rápido */
+    }
+
+    @keyframes moverFondo {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header, footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+    h1, h2 {
+      color: #0044cc;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffcc00;
+    }
+    main {
+      padding: 20px;
+    }
+    section {
+      margin-bottom: 30px;
+      background: rgba(255,255,255,0.9);
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+    }
+    img {
+      display: block;
+      margin-top: 10px;
+    }
+    button {
+      background-color: #0044cc;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      margin: 5px;
+    }
+    button:hover {
+      background-color: #003399;
+    }
+    #reloj {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    form {
+      margin-top: 20px;
+      padding: 15px;
+      background: #eef;
+      border-radius: 8px;
+    }
+    input, textarea {
+      width: 95%;
+      margin: 5px 0;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body onload="mensajeBienvenida(); mostrarHora();">
+
+  <header>
+    <h1>Blog sobre Inteligencia Artificial</h1>
+    <nav>
+      <a href="#articulo1">Inicio</a>
+      <a href="#articulo2">Historia</a>
+      <a href="#articulo3">Futuro</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <p id="reloj"></p>
+  </header>
+
+  <main>
+    <section id="articulo1">
+      <h2>¿Qué es la Inteligencia Artificial?</h2>
+      <p><strong>La Inteligencia Artificial (IA)</strong> es una rama de la informática que busca <u>crear sistemas</u> capaces de imitar la inteligencia humana.</p>
+      <p>Hoy en día se aplica en <b>salud, educación y negocios</b>.</p>
+      <ul>
+        <li>Asistentes virtuales</li>
+        <li>Reconocimiento de voz</li>
+        <li>Automóviles autónomos</li>
+      </ul>
+    </section>
+
+    <section id="articulo2">
+      <h2>Historia de la IA</h2>
+      <p>La IA comenzó en los años 50 con los primeros algoritmos.</p>
+      <ol>
+        <li>1956 – Nacimiento del término IA.</li>
+        <li>1980 – Redes neuronales.</li>
+        <li>2000 en adelante – Big Data y aprendizaje profundo.</li>
+      </ol>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Artificial_Intelligence_logo.png" alt="Imagen IA" width="300">
+    </section>
+
+    <section id="articulo3">
+      <h2>El Futuro de la IA</h2>
+      <p>Se espera que la IA transforme la sociedad en las próximas décadas.</p>
+      <p>Mira este video sobre el impacto de la IA:</p>
+      <iframe width="400" height="250" src="https://www.youtube.com/embed/2ePf9rue1Ao" frameborder="0" allowfullscreen></iframe>
+      <br>
+      <button onclick="modoOscuro()">Activar/Desactivar modo oscuro</button>
+    </section>
+
+    <section id="contacto">
+      <h2>Formulario de Contacto</h2>
+      <form onsubmit="return validarFormulario()">
+        <label>Nombre:</label><br>
+        <input type="text" id="nombre" required><br>
+        <label>Correo:</label><br>
+        <input type="email" id="correo" required><br>
+        <label>Mensaje:</label><br>
+        <textarea id="mensaje" rows="4" required></textarea><br>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Blog de Inteligencia Artificial - Estalin Medina Valdez</p>
+    <a href="https://es.wikipedia.org/wiki/Inteligencia_artificial" target="_blank" style="color: #ffcc00;">Más sobre IA</a>
+  </footer>
+
+  <script>
+    // Mensaje al cargar la página
+    function mensajeBienvenida() {
+      alert("Bienvenido a mi Blog sobre Inteligencia Artificial");
+    }
+
+    // Activar/Desactivar modo oscuro
+    function modoOscuro() {
+      document.body.classList.toggle("oscuro");
+      if (document.body.classList.contains("oscuro")) {
+        document.body.style.background = "#121212";
+        document.body.style.color = "white";
+      } else {
+        document.body.style.background = "linear-gradient(270deg, #ffcc00, #ff6699, #66ccff, #99ff66, #ff9966)";
+        document.body.style.backgroundSize = "1000% 1000%";
+        document.body.style.animation = "moverFondo 5s linear infinite"; // velocidad rápida
+        document.body.style.color = "#333";
+      }
+    }
+
+    // Mostrar hora en tiempo real
+    function mostrarHora() {
+      setInterval(() => {
+        let fecha = new Date();
+        document.getElementById("reloj").innerText = 
+          "Hora actual: " + fecha.toLocaleTimeString();
+      }, 1000);
+    }
+
+    // Validar formulario de contacto
+    function validarFormulario() {
+      let nombre = document.getElementById("nombre").value;
+      let correo = document.getElementById("correo").value;
+      let mensaje = document.getElementById("mensaje").value;
+
+      if (nombre == "" || correo == "" || mensaje == "") {
+        alert("Por favor, completa todos los campos.");
+        return false;
+      } else {
+        alert("Gracias " + nombre + ", tu mensaje fue enviado.");
+        return true;
+      }
+    }
+  </script>
+
+</body>
+</html>
+
